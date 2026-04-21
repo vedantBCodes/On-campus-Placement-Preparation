@@ -11,7 +11,7 @@ Function10 : Remove duplicate elements from an unsorted array
 #include<iostream>
 using namespace std;
  
-void function6(int arr[],int size)
+void function6_1(int arr[],int size) //Wrost approach
 {
     for(int i=0;i<size;i++)
     {
@@ -32,6 +32,34 @@ void function6(int arr[],int size)
         cout<<arr[j]<<" ";
     }
 }
+
+void function6_2(int arr[],int size) //Best approach
+{
+    int index=0;
+    for(int i=0;i<size;i++)
+    {
+        if(arr[i]!=0)
+        {
+            arr[index]=arr[i];
+            index++;
+        }
+    }
+
+    // This will put all the non-zeros at the starting
+    // Now we have to set all the remaining indexes with zeros
+    
+    for(int i=index ; i<size;i++)
+    {
+        arr[i]=0;
+    }
+    cout<<"Array elements after moving zeros at the end : ";
+
+    for(int j=0;j<size;j++)
+    {
+        cout<<arr[j]<<" ";
+    }
+}
+
 
 void function7(int arr[] , int size)
 {

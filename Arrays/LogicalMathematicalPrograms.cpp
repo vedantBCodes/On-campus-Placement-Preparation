@@ -10,6 +10,7 @@ Function6 : Find repeating elements in an array
 */
 
 #include<iostream>
+#include<unordered_map>
 using namespace std;
  
 void function1(int arr[],int size)
@@ -127,7 +128,7 @@ void function4(int arr[],int size) //Brute force approach
          cout<<endl;
       }
    }
-   cout<<"Longest product of subarray : "<<maxPro;
+   cout<<"Largest product of subarray : "<<maxPro;
 }
 
 void function5(int arr[],int size)
@@ -143,7 +144,7 @@ void function5(int arr[],int size)
    cout<<"Missing Number : "<<diff;
 }
 
-void function6(int arr[],int size)
+void function6_1(int arr[],int size)
 {
    cout<<"Repeated elements : ";
    for(int i=0;i<size;i++)
@@ -169,10 +170,27 @@ void function6(int arr[],int size)
    }
 }
 
+void function6_2(int arr[], int size)
+{
+   unordered_map<int , int> freq ;
+   for(int i=0;i<size;i++)
+   {
+      freq[arr[i]]++;
+   }
+   cout<<"Repeating element : ";
+   for(auto x : freq)
+   {
+      if(x.second > 1)
+      {
+         cout<<x.first<<" ";
+      }
+   }
+}
+
 int main()
 {
    int arr[] = {1,2,3,2,4,5,4};
    int size = sizeof(arr)/sizeof(arr[0]);
-   function6(arr,size);
+   function6_2(arr,size);
    return 0;
 }

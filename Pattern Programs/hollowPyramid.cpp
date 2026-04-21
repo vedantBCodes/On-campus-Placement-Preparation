@@ -2,12 +2,10 @@
 using namespace std;
 
 /*
-
    *
   * *
  *   *
 *******
-
 */
 
 void hollowPyramid(int rows)
@@ -37,6 +35,6 @@ void hollowPyramid(int rows)
 
 int main()
 {
-    hollowPyramid(4);
+    hollowPyramid(10);
     return 0;
 }

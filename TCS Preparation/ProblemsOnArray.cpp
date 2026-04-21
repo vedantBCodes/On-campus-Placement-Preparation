@@ -14,10 +14,10 @@ int largest(int arr[], int size)
     return max;
 }
 
-int secondLargest(int arr[], int size) //with O(n2) time complexity
+int secondLargest(int arr[], int size) //with O(n) time complexity
 {
     if(size < 2)
-        return -1;  // no second largest
+        return -1;  // no second largest   
 
     int max = INT_MIN;
 
@@ -137,7 +137,7 @@ int GCDCalculation(int num1 , int num2)
     num1 = abs(num1);
     num2 = abs(num2);
     int small = min(num1, num2);
-    for(int i=small ; i>=1;i--)
+    for(int i=small ; i>=1 ;i--)
     {
         if(num1 % i == 0 && num2 % i == 0)
         {

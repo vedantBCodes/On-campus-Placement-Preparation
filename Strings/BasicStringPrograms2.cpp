@@ -82,7 +82,7 @@ void function4(string str)
             (str[i] >= 'A' && str[i] <= 'Z') || 
             (str[i] >= '0' && str[i] <= '9'))
         {
-            if (!inWord)
+            if (inWord==false)
             {
                 count++;
                 inWord = true;
@@ -93,7 +93,6 @@ void function4(string str)
             inWord = false;
         }
     }
-
     cout << "Number of words: " << count;
 }
 

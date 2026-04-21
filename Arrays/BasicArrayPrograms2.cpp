@@ -9,6 +9,7 @@ Function10 : Find the frequency of each element
 */
 
 #include<iostream>
+#include<unordered_map>
 using namespace std;
 
 void function6(int arr[], int size)
@@ -79,7 +80,7 @@ bool function9(int arr1[], int arr2[] ,int size1, int size2)
     return true;
 }
 
-void function10(int arr[],int size)
+void function10_1(int arr[],int size)
 {
     for(int i=0;i<size;i++)
     {
@@ -107,10 +108,24 @@ void function10(int arr[],int size)
     }
 }
 
+void function10_2(int arr[],int size)
+{
+    unordered_map<int,int> freq;
+    for(int i=0;i<size;i++)
+    {
+        freq[arr[i]]++;
+    }
+
+    for(auto x : freq)
+    {
+        cout<<x.first <<" occurs "<<x.second<<" times"<<endl;
+    }
+}
+
 int main()
 {
     int arr[] = {1,2,3,4,3,2,1,1,1,2,2,5};
     int size=sizeof(arr)/sizeof(arr[0]);
-    function7(arr,size);
+    function10_2(arr,size);
 
 }

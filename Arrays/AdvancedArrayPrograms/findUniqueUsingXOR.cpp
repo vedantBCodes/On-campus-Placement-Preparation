@@ -32,7 +32,7 @@ So the element that appears once = 4
 #include<iostream>
 using namespace std;
 
-int findUnique(int arr[], int size)
+int findUnique(int arr[], int size) // XOR works well only when a single element is unique 
 {
     int xorResult = 0;
 
@@ -43,7 +43,6 @@ int findUnique(int arr[], int size)
 
     return xorResult; // final answer
 }
-
 
 int main()
 {

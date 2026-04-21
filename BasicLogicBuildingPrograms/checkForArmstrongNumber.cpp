@@ -12,7 +12,7 @@ int countNoOfDigits(int num)
         num = num / 10;
     }
     return cnt;
-}
+}   
 
 bool checkForArmstrongNumber(int num)
 {

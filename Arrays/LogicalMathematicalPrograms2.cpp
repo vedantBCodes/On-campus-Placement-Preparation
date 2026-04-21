@@ -8,7 +8,7 @@ function5 : Rearrange array in increasing–decreasing order (wave form)
 function6 : Sort 0s, 1s, and 2s (Dutch National Flag problem)
 function7 : Find equilibrium index (where left sum = right sum)
 
-*/
+*/  
 
 #include<iostream>
 #include<vector>
@@ -55,7 +55,7 @@ void function2(int arr[], int size,int total)
 
 void function3(int arr[],int size, int totalDiff)
 {
-      int diff;
+    int diff;
     cout<<"Pairs with difference  "<<diff<<" : \n";
     for(int i=0;i<size;i++)
     {
@@ -126,7 +126,7 @@ Original: 3 6 1 8 4 2
 After rearangment : [2, 1, 4, 3, 8, 6]
 */
 
-void function5(int arr[],int size)
+void function5_1(int arr[],int size) // For a[0] > a[1] < a[2] > a[3] ... this pattern
 {
     // Correct sorting (ascending)
     for(int i=0;i<size-1;i++)
@@ -147,6 +147,31 @@ void function5(int arr[],int size)
     }
 
     cout<<"Array elements after rearrangment : ";
+    for(int i=0;i<size;i++)
+    {
+        cout<<arr[i]<<" ";
+    }
+}
+void function5_2(int arr[],int size) // For a[0] < a[1] > a[2] < a[3] ... this pattern
+{
+    for(int i=0;i<size-1;i++)
+    {
+        if(i%2==0) // for even indexed elements like 0,2,4,6....
+        {
+            if(arr[i]>arr[i+1])
+            {
+                swap(arr[i],arr[i+1]);
+            }
+        }
+        else  // for odd indexed elements like 1,3,5,7....
+        {
+            if(arr[i]<arr[i+1])
+            {
+                swap(arr[i],arr[i+1]);
+            }
+        }
+    }
+    cout<<"Elements after wave form arrangement ";
     for(int i=0;i<size;i++)
     {
         cout<<arr[i]<<" ";

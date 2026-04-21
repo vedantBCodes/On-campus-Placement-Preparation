@@ -34,7 +34,7 @@ void function1(int arr[],int &size,int ele,int pos)
 
 void function2(int arr[],int &size,int pos) 
 {
-    if(pos<=0 || pos>=size)
+    if(pos<=0 || pos>size)
     {
         cout<<"Invalid position to delete";
         return;
@@ -44,6 +44,7 @@ void function2(int arr[],int &size,int pos)
     {
         arr[i]=arr[i+1];
     }
+
     size--;
     cout<<"Array elements after deletion :";
     for(int i=0;i<size;i++)
@@ -54,7 +55,8 @@ void function2(int arr[],int &size,int pos)
 
 void function3(int arr[],int arr2[],int size,int size2)
 {
-    int merged[size + size2]; // create a new array big enough
+    int merged[size + size2]; // create a new array big enough 
+    //This line may give an error in some compilers . Use vector<int> merged(size + size2); instead
 
     for (int i = 0; i < size; i++) {
         merged[i] = arr[i];

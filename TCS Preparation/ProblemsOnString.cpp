@@ -1,5 +1,6 @@
 #include<iostream>
 #include<string>
+#include<unordered_map>
 using namespace std;
  
 void reverseAString(string &str)  // Pass by reference 
@@ -34,7 +35,7 @@ int countVowel(string str)
     return cnt ;
 }  
 
-void removeSpaces(string str)
+void removeSpaces(string str) // Brute-Force Approach with O(n2) time complexity 
 {
     int len = str.size();
     for(int i=0;i<len;i++)
@@ -46,15 +47,84 @@ void removeSpaces(string str)
                 str[j] = str[j+1];
             }
             i--;
+            len--;
         }
     }
+    str.resize(len); 
     cout<<str;
 }   
 
+void removeSpaces2(string &str) // Optimized code O(n) time complexity 
+{
+    int x=0 ; 
+    int len = str.size();
+    for(int i=0;i<len;i++)
+    {
+        if(str[i]!=' ')
+        {
+            str[x]=str[i];
+            x++;
+        }
+    }
+    str.resize(x);
+}
+
+void characterFrequency(string str)
+{
+    int len = str.size();
+    int cnt;
+    for(int i=0;i<len;i++)
+    {
+        bool check=false;
+        if(str[i] == ' ') 
+        {
+            continue;
+        }
+        for(int j=i-1;j>=0;j--)
+        {
+            if(str[i]==str[j])
+            {
+                check=true;
+                break;
+            }
+        }
+        if(check==false)
+        {
+            cnt=0;
+            for(int k=0;k<len;k++)
+            {
+                if(str[i]==str[k])
+                {
+                    cnt++;
+                }
+            }
+            cout<<str[i]<<" occurs "<<cnt<<" times\n";
+        }  
+    }
+}
+
+void characterFrequency2(string str)
+{
+    unordered_map<char , int> freq;
+    for(int i=0;i<str.size();i++)
+    {
+        if(str[i]==' ')
+        {
+            continue;
+        }
+        freq[str[i]]++ ;
+    }
+    for(auto &pair : freq)
+    {
+        cout<<pair.first<<" occurs "<<pair.second<<" times .\n";
+    }
+
+}
+
 int main()
 {
-    string str = "veda    nt yeo tikar";
+    string str = "vedantvnnn";
     // getline(cin , str);
-    removeSpaces(str);
+    characterFrequency2(str);
     return 0 ;
 }

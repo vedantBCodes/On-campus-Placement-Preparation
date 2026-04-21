@@ -20,7 +20,8 @@ bool checkForPallindrome(int num)
         return false;
     }
     return reverseNumber(num) == num ;
-}
+}   
+
 int main()
 {
     int num;

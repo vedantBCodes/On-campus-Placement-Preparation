@@ -3,12 +3,11 @@ using namespace std;
 
 /*
 
-* * * *
-     *
-    *
-   *
- * 
-* * * * 
+* * * * *
+      *
+    *  
+  * 
+* * * * *
 
 */
 
@@ -33,6 +32,6 @@ void ZPattern(int rows)
 
 int main()
 {
-    ZPattern(7);
+    ZPattern(5);
     return 0;
 }
