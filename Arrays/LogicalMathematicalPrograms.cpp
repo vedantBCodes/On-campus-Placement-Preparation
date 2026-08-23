@@ -107,28 +107,23 @@ void function3UsingkadaneAlgorithm2(int arr[], int size)
      cout<<"Longest sum of subarray : "<<maxSum;
 }
 
-void function4(int arr[],int size) //Brute force approach
+int function4(int arr[], int size)  // Brute-force approach
 {
-   int maxPro=INT_MIN;
-   int product;
-   for(int i=0;i<size;i++)
-   {
-      for(int j=i;j<size;j++)
-      {
-         product=1;
-         for(int k=i;k<=j;k++)
-         {
-            product*=arr[k];
-            cout<<arr[k]<<" ";
-         }
-         if(product>maxPro)
-         {
-            maxPro=product;
-         }
-         cout<<endl;
-      }
-   }
-   cout<<"Largest product of subarray : "<<maxPro;
+    int maxProduct = INT_MIN;
+
+    for (int i = 0; i < size; i++)
+    {
+        int product = 1;
+
+        for (int j = i; j < size; j++)
+        {
+            product *= arr[j];
+
+            maxProduct = max(maxProduct, product);
+        }
+    }
+
+    return maxProduct;
 }
 
 void function5(int arr[],int size)
