@@ -21,19 +21,18 @@ bool checkForPalindrome(string &str)
 
 int countVowel(string str)
 {
-    int i=0;
-    int cnt = 0 ;
-    while(str[i]!='\0')
+    int cnt = 0;
+
+    for (char ch : str)
     {
-        char ch = tolower(str[i]);
-        if(ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u')
-        {
-            cnt += 1;
-        }
-        i++;
+        ch = tolower(ch);
+
+        if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u')
+            cnt++;
     }
-    return cnt ;
-}  
+
+    return cnt;
+}
 
 void removeSpaces(string str) // Brute-Force Approach with O(n2) time complexity 
 {
